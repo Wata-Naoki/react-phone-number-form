@@ -8,7 +8,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { cn } from "@/lib/utils";
-import { FormProvider, useForm } from "react-hook-form";
+import { FieldValues, FormProvider, useForm } from "react-hook-form";
 import PhoneInput from "react-phone-number-input"; // PhoneInputをインポート
 import "react-phone-number-input/style.css"; // スタイルのインポート
 
@@ -17,7 +17,8 @@ export default function Home() {
   const { handleSubmit, control } = methods;
 
   // フォーム送信時の処理
-  const onSubmit = (data) => {
+  const onSubmit = (data: FieldValues) => {
+    console.log("data", data);
     alert(`電話番号 (国際形式):, ${data.phoneInputWithCountrySelect}`);
   };
 
